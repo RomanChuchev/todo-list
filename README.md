@@ -2,25 +2,27 @@
 
 # [WomanUP - to-do list](https://romanchuchev.github.io/woman-up-todo-list/)
 
-[![Live Demo](./src/images/screenshot.png)](https://romanchuchev.github.io/woman-up-todo-list//)
+[![Live Demo](./src/images/screenshot.png)](https://romanchuchev.github.io/woman-up-todo-list/)
 
 ---
-
-
 
 ## ⭐ Тестовое задание WomanUP
 
 WomanUP — ИТ-компания в области разработки образовательных решений.
 
 ## ⭐ Запустить проект
+
 #### `git clone [link]`
+
 #### `npm install`
+
 #### `npm start`
+
 #### `npm run build`
 
 ## ⭐ Документация
 
-#### https://antisedativ.github.io/Todo-WomanUP/jsdoc/index.html
+#### https://romanchuchev.github.io/woman-up-todo-list/out/index.html
 
 ### ⭐ Задание
 
@@ -52,9 +54,7 @@ WomanUP — ИТ-компания в области разработки обр�
 4. использовать less, если потребуется писать стили;
 5. постараться не использовать никаких библиотек, кроме необходимых для общения с Back-end.
 
-#### Не требуется делать супер-красивый UI и функции не описанные в задании.
-
-## ⭐ Стек технологий:
+## Стек технологий:
 
 - React + routing
 - React Hooks

@@ -17,13 +17,13 @@ import "./app.css";
 function App() {
   return (
     <div className="app">
-      <Router>
+      <Router basename="/woman-up-todo-list">
         <Header />
         <div className="body">
           <Routes>
             <Route
               exact
-              path="/todo"
+              path="/"
               element={
                 <div>
                   <TodoList />
@@ -33,7 +33,7 @@ function App() {
             />
 
             <Route path="/todo/:id/" element={<TodoEditing />} />
-            <Route path="/todo/create/" element={<ItemAddForm />} />
+            <Route path="/create" element={<ItemAddForm />} />
           </Routes>
         </div>
       </Router>

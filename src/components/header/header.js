@@ -24,17 +24,17 @@ const Header = () => {
         </a>
       </div>
       <div className={style.header__title}>
-        <Link to={"/todo"}>
+        <Link to={"/"}>
           <h2> Список дел</h2>
         </Link>
       </div>
       <div className={style.header__wrapper}>
-        <Link to={"/todo"}>
+        <Link to={"/"}>
           <span className={style.header__count}>
             <i className="fa fa-list"></i>
           </span>
         </Link>
-        <Link to={"/todo/create"}>
+        <Link to={"/create"}>
           <span className={style.header__count}>
             <i className="fa fa-plus"></i>
           </span>

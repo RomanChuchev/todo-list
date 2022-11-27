@@ -29,7 +29,7 @@ function ItemAddForm() {
   const [previewImg, setPreviewImg] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const goHome = () => navigate("/todo");
+  const goHome = () => navigate("/");
 
   /**
    * Функция отправки задачу на сервер

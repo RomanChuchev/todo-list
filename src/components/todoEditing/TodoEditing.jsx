@@ -29,7 +29,7 @@ const TodoEditing = () => {
   const [data] = useCollectionData(collection(db, "data"));
   const params = useParams();
   const navigate = useNavigate();
-  const goHome = () => navigate("/todo");
+  const goHome = () => navigate("/");
 
   // Получение файла
   useEffect(() => {

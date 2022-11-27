@@ -1,0 +1,29 @@
+.todo-list {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 0 20px;
+  margin-bottom: 20px;
+}
+
+.todo-item {
+  background: var(--color-dpo-background);
+  box-shadow: var(--shadow);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  list-style-type: none;
+  display: block;
+  margin-bottom: -1px;
+  border: 1px solid var(--color-dark-redbrown);
+}
+
+.todo-item:first-child {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.todo-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: todo-list-item/todo-list-item.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: todo-list-item/todo-list-item.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from "react";
+import { getDownloadURL, ref, deleteObject } from "firebase/storage";
+import { Link } from "react-router-dom";
+import { doc, deleteDoc, updateDoc } from "firebase/firestore";
+import Timer from "../Timer";
+import { db, storage } from "../../firebase";
+
+import "./todo-list-item.css";
+
+/**
+ * Функция форматирования времени
+ * Принимает время формата UNIX и возвращает формат YYYY-MM-DD HH:MM
+ *
+ * @param {number} unix_timestamp - Время в формате UNIX
+ * @returns {string} - Время в формате YYYY-MM-DD HH:MM
+ */
+const formattedTime = (unix_timestamp) => {
+  let date = new Date(unix_timestamp * 1000).toISOString().substring(0, 16);
+  return `${date.split("T")[0]} ${date.split("T")[1]}`;
+};
+
+/**
+ * Реакт компонент элемента списка дел
+ * @constructor
+ * @param {object} todo - Данные текущей задачи
+ * @returns {JSX.Element} - Возвращает элемент списка дел, который включает в себя название, описание, фотографию, время до окончания и кнопки управления
+ */
+function TodoListItem({ todo }) {
+  const [url, setUrl] = useState("");
+
+  const docRef = doc(db, "data", todo.key);
+  const imgRef = ref(storage, `images/${todo.fileName}`) || null;
+
+  useEffect(() => {
+    if (todo.fileName) {
+      getDownloadURL(ref(storage, `images/${todo.fileName}`)).then((url) => {
+        setUrl(url);
+      });
+    }
+  }, [todo.complete, todo.fileName]);
+
+  /**
+   * Функция, которая позволяет отметить пост как "выполненный"
+   * @returns {Promise&lt;void>}
+   * @example
+   * async function completeTodo() {
+   * await updateDoc(docRef, { complete: !todo.complete });
+   * }
+   */
+  async function completeTodo() {
+    await updateDoc(docRef, { complete: !todo.complete });
+  }
+
+  /**
+   * Функция, которая позволяет удалять пост
+   * @returns {Promise&lt;void>}
+   * @example
+   * async function deleteTodo() {
+   * await deleteDoc(docRef);
+   * await deleteObject(imgRef);
+   * }
+   */
+  async function deleteTodo() {
+    await deleteDoc(docRef);
+    if (imgRef != null &amp;&amp; imgRef._location.path_.length > 7) {
+      await deleteObject(imgRef);
+    }
+  }
+
+  return (
+    &lt;div className="todo-list-item">
+      {todo.complete ? (
+        &lt;>
+          &lt;div className="complete-wrapper">
+            &lt;div className="todo-list-item__title">{todo.title}&lt;/div>
+
+            &lt;div className="btn-wrapper">
+              &lt;Link
+                onClick={completeTodo}
+                className="btn btn-success"
+                to={`/todo/${todo.id}/`}
+              >
+                &lt;i className="fa fa-refresh">&lt;/i>
+              &lt;/Link>
+
+              &lt;button
+                onClick={() => deleteTodo()}
+                type="button"
+                className="btn btn-danger"
+              >
+                &lt;i className="fa fa-trash-o" />
+              &lt;/button>
+            &lt;/div>
+          &lt;/div>
+        &lt;/>
+      ) : (
+        &lt;>
+          &lt;div className="todo-item__container">
+            {url &amp;&amp; (
+              &lt;img
+                className="todo-list-item__images"
+                src={url}
+                alt="images-from-user"
+              />
+            )}
+            &lt;div className="todo-item__wrapper">
+              &lt;div>
+                &lt;div className="todo-list-item__title">{todo.title}&lt;/div>
+                &lt;div className="todo-list-item__description">
+                  {todo.description ?? todo.description}
+                &lt;/div>
+              &lt;/div>
+            &lt;/div>
+            &lt;div className="settings__wrapper">
+              &lt;div className="btn-wrapper">
+                &lt;button
+                  onClick={completeTodo}
+                  type="button"
+                  className="btn btn-success"
+                >
+                  &lt;i className="fa fa-check-square-o">&lt;/i>
+                &lt;/button>
+
+                &lt;Link className="btn btn-primary" to={`/todo/${todo.id}/`}>
+                  &lt;i className="fa fa-pencil">&lt;/i>
+                &lt;/Link>
+
+                &lt;button
+                  onClick={() => deleteTodo()}
+                  type="button"
+                  className="btn btn-danger"
+                >
+                  &lt;i className="fa fa-trash-o" />
+                &lt;/button>
+              &lt;/div>
+              &lt;div className="settings__time">
+                До окончания:
+                &lt;div style={{ color: "blueviolet", marginLeft: 10 }}>
+                  &lt;Timer
+                    time={todo.dateCompletion}
+                    docRef={docRef}
+                    complete={todo.complete}
+                  />
+                &lt;/div>
+              &lt;/div>
+              &lt;div className="settings__time">
+                &lt;span>Последнее обновление:&lt;/span>
+                &lt;div
+                  className="sittings__formatted"
+                  style={{ color: "blueviolet", marginLeft: 5 }}
+                >
+                  {formattedTime(todo.createdAt.seconds)}
+                &lt;/div>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+        &lt;/>
+      )}
+    &lt;/div>
+  );
+}
+
+export default TodoListItem;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="Header.html">Header</a></li><li><a href="ItemAddForm.html">ItemAddForm</a></li><li><a href="Timer.html">Timer</a></li><li><a href="TodoEditing.html">TodoEditing</a></li><li><a href="TodoList.html">TodoList</a></li><li><a href="TodoListItem.html">TodoListItem</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#formattedTime">formattedTime</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun Nov 27 2022 21:52:11 GMT+0300 (Москва, стандартное время)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

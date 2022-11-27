@@ -1,4 +1,32 @@
-import React, { useState, useEffect } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: item-add-form/item-add-form.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: item-add-form/item-add-form.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
 import "./item-add-form.css";
 import { ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
@@ -47,7 +75,7 @@ function ItemAddForm() {
    * // Создание даты
    * const date = Timestamp.fromDate(new Date());
    * const timeNew = Timestamp.fromDate(new Date(time));
-   * if (timeNew < date) {
+   * if (timeNew &lt; date) {
    * return alert("Дата завершения не может быть в прошлом");
    * }
    *
@@ -101,7 +129,7 @@ function ItemAddForm() {
     // Создание даты
     const date = Timestamp.fromDate(new Date());
     const timeNew = Timestamp.fromDate(new Date(time));
-    if (timeNew < date) {
+    if (timeNew &lt; date) {
       return alert("Дата завершения не может быть в прошлом");
     }
 
@@ -159,43 +187,43 @@ function ItemAddForm() {
   }, [image]);
 
   return (
-    <>
+    &lt;>
       {loading ? (
-        <div className="loading">
-          <div style={{ color: "blueviolet" }}>Добавляем задачу</div>
-          <div className="loader">
-            <Spinner color="secondary" />
-          </div>
-        </div>
+        &lt;div className="loading">
+          &lt;div style={{ color: "blueviolet" }}>Добавляем задачу&lt;/div>
+          &lt;div className="loader">
+            &lt;Spinner color="secondary" />
+          &lt;/div>
+        &lt;/div>
       ) : (
-        <form className="item-add-form" onSubmit={onSubmit}>
-          <h2>Добавить задачу</h2>
-          <div className="row">
-            <input
+        &lt;form className="item-add-form" onSubmit={onSubmit}>
+          &lt;h2>Добавить задачу&lt;/h2>
+          &lt;div className="row">
+            &lt;input
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               className="form-control col-6 form__title"
               placeholder="Название"
               value={title}
             />
-            <input
+            &lt;input
               onChange={(e) => setTime(e.target.value)}
               type="datetime-local"
               name="datetime"
               className="form-control col-6 form__time"
               value={time}
             />
-          </div>{" "}
-          <textarea
+          &lt;/div>{" "}
+          &lt;textarea
             onChange={(e) => setDescription(e.target.value)}
             value={description}
             placeholder="Описание"
             className="form-control"
-          ></textarea>
-          <div className="form__button-wrapper">
-            <div className="file">
-              <div className="file__item">
-                <input
+          >&lt;/textarea>
+          &lt;div className="form__button-wrapper">
+            &lt;div className="file">
+              &lt;div className="file__item">
+                &lt;input
                   id="formImage"
                   accept=".jpg, .png, .gif"
                   type="file"
@@ -203,24 +231,47 @@ function ItemAddForm() {
                   className="file__input"
                   onChange={(e) => setImage(e.target.files[0])}
                 />
-                <div className="file__button">Прикрепить фото</div>
-              </div>
-            </div>
+                &lt;div className="file__button">Прикрепить фото&lt;/div>
+              &lt;/div>
+            &lt;/div>
             {image ? (
-              <div className="file__preview">
-                <img width={300} src={previewImg} alt="uploud" />
-                <i onClick={() => setImage(null)} className="fa fa-times"></i>
-              </div>
+              &lt;div className="file__preview">
+                &lt;img width={300} src={previewImg} alt="uploud" />
+                &lt;i onClick={() => setImage(null)} className="fa fa-times">&lt;/i>
+              &lt;/div>
             ) : null}
 
-            <button onClick={onSubmit} type="button" className="btn form__btn">
+            &lt;button onClick={onSubmit} type="button" className="btn form__btn">
               Добавить
-            </button>
-          </div>
-        </form>
+            &lt;/button>
+          &lt;/div>
+        &lt;/form>
       )}
-    </>
+    &lt;/>
   );
 }
 
 export default ItemAddForm;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="Header.html">Header</a></li><li><a href="ItemAddForm.html">ItemAddForm</a></li><li><a href="Timer.html">Timer</a></li><li><a href="TodoEditing.html">TodoEditing</a></li><li><a href="TodoList.html">TodoList</a></li><li><a href="TodoListItem.html">TodoListItem</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#formattedTime">formattedTime</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun Nov 27 2022 21:52:11 GMT+0300 (Москва, стандартное время)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

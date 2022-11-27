@@ -21,9 +21,9 @@ const formattedTime = (unix_timestamp) => {
 
 /**
  * Реакт компонент элемента списка дел
- * @param {object} todo - Данные поста
- * @returns {JSX.Element}
  * @constructor
+ * @param {object} todo - Данные текущей задачи
+ * @returns {JSX.Element} - Возвращает элемент списка дел, который включает в себя название, описание, фотографию, время до окончания и кнопки управления
  */
 function TodoListItem({ todo }) {
   const [url, setUrl] = useState("");

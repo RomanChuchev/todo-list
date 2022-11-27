@@ -1,14 +1,22 @@
 # <h1 align="center">To Do list application</h1>
 
-# [WomanUP - to-do list](https://romanchuchev.github.io/portfolio/)
+# [WomanUP - to-do list](https://romanchuchev.github.io/woman-up-todo-list/)
 
-[![Live Demo](./src/images/screenshot.png)](https://romanchuchev.github.io/portfolio/)
+[![Live Demo](./src/images/screenshot.png)](https://romanchuchev.github.io/woman-up-todo-list//)
 
 ---
+
+
 
 ## ⭐ Тестовое задание WomanUP
 
 WomanUP — ИТ-компания в области разработки образовательных решений.
+
+## ⭐ Запустить проект
+#### `git clone [link]`
+#### `npm install`
+#### `npm start`
+#### `npm run build`
 
 ## ⭐ Документация
 

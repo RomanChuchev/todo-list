@@ -8,10 +8,11 @@ import TodoEditing from "../todoEditing";
 import "./app.css";
 
 /**
- * Реакт компонент (APP)
- * Осуществляет роутинг по приложению
- * @returns {JSX.Element}
+ * Основной комнонент приложения
+ * - Осуществляет роутинг по приложению
+ *
  * @constructor
+ * @returns {JSX.Element}
  */
 function App() {
   return (

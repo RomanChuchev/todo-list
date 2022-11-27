@@ -3,9 +3,9 @@ import React from "react";
 import "./spinner.css";
 
 /**
- * Спиннер 
- * Указывает состояние загрузки компонента или страницы 
- * @returns  {JSX.Element}
+ * Спиннер
+ * Указывает состояние загрузки компонента или страницы
+ * @returns  {JSX.Element} - Спиннер
  */
 const Spinner = () => {
   return (

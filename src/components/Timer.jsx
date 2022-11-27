@@ -5,11 +5,26 @@ import { Timestamp, updateDoc } from "firebase/firestore";
  * Таймер формата "DD д. hh:mm:ss"
  * По истечении времени помечает задачу выполненной
  *
+ * @constructor
  * @param {string} time - Время таймера
- * @param {object} docRef
+ * @param {object} docRef - Ссылка на документ
  * @param {boolean} complete - Состояние поста (выполняется / выполнен)
  * @returns {JSX.Element}
- * @constructor
+ * @example
+ * const [[d, h, m, s], setTime] = useState([days, hours, min, sec]);
+ * const tick = () => {
+ *   if (d === 0 && h === 0 && m === 0 && s === 0) {
+ *     completeTodo();
+ *   } else if (h === 0 && m === 0 && s === 0) {
+ *     setTime([d - 1, 23, 59, 59]);
+ *   } else if (m === 0 && s === 0) {
+ *     setTime([d, h - 1, 59, 59]);
+ *   } else if (s === 0) {
+ *     setTime([d, h, m - 1, 59]);
+ *   } else {
+ *     setTime([d, h, m, s - 1]);
+ *   }
+ * };
  */
 const Timer = ({ time, docRef, complete }) => {
   // По истечении времени помечает задачу

@@ -1,5 +1,3 @@
-# <h1 align="center">To Do list application</h1>
-
 # [WomanUP - to-do list](https://romanchuchev.github.io/woman-up-todo-list/)
 
 [![Live Demo](./src/images/screenshot.png)](https://romanchuchev.github.io/woman-up-todo-list/)
@@ -19,10 +17,6 @@ WomanUP — ИТ-компания в области разработки обр�
 #### `npm start`
 
 #### `npm run build`
-
-## Документация
-
-#### https://romanchuchev.github.io/woman-up-todo-list/out/index.html
 
 ## Задание
 

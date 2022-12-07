@@ -209,7 +209,10 @@ function ItemAddForm() {
             {image ? (
               <div className="file__preview">
                 <img width={300} src={previewImg} alt="uploud" />
-                <i onClick={() => setImage(null)} className="fa fa-times"></i>
+                <i
+                  onClick={() => setImage(null)}
+                  className="fa-solid fa-xmark"
+                ></i>
               </div>
             ) : null}
 

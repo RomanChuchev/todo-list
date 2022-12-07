@@ -191,7 +191,7 @@ const TodoEditing = () => {
                     <img width={300} src={previewImg} alt="uploud" />
                     <i
                       onClick={() => setNewImage(null)}
-                      className="fa fa-times"
+                      className="fa-solid fa-xmark"
                     ></i>
                   </div>
                 ) : image ? (
@@ -199,7 +199,7 @@ const TodoEditing = () => {
                     <img width={300} src={url} alt="uploud" />
                     <i
                       onClick={() => setImage(null)}
-                      className="fa fa-times"
+                      className="fa-solid fa-xmark"
                     ></i>
                   </div>
                 ) : null}

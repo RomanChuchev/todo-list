@@ -10,6 +10,7 @@
 
 .form__label {
   margin: 0 0 0 20px;
+  color: var(--text-900);
 }
 .form-item .form-control {
   width: 100%;

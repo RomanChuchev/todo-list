@@ -165,13 +165,14 @@ textarea.form-control {
   max-width: 30%;
   position: relative;
 }
-.file__preview .fa {
+.file__preview .fa-solid {
   position: absolute;
   right: -20px;
-  top: -20px;
-  font-weight: 100;
+  top: -15px;
   padding: 5px;
   cursor: pointer;
+  font-size: 26px;
+  color: var(--skin-color);
 }
 .file__preview img {
   max-width: 100%;

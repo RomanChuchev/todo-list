@@ -18,9 +18,9 @@ import style from "./header.module.css";
 const Header = () => {
   return (
     <div className={style.header}>
-      <div className={style.header__img}>
-        <a href="https://womanup.online/" target="_blank" rel="noreferrer">
-          <img height="40" src={logo} alt="Womanup" />
+      <div className={style.header__logo}>
+        <a href="https://romanchuchev.github.io/portfolio/">
+          <span>Ro</span>man
         </a>
       </div>
       <div className={style.header__title}>

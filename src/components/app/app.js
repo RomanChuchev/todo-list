@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../header";
 import TodoList from "../todo-list";
@@ -15,8 +15,15 @@ import "./app.css";
  * @returns {JSX.Element}
  */
 function App() {
+  const [isNight, setIsNight] = useState(false);
+  const styleMain = isNight ? "app dark" : "app";
+  const styleIcon = isNight ? "fas fa-sun" : "fas fa-moon";
   return (
-    <div className="app">
+    <main className={styleMain}>
+      <button className="night-mode" onClick={() => setIsNight(!isNight)}>
+        <i className={styleIcon}></i>
+      </button>
+
       <Router basename="/woman-up-todo-list">
         <Header />
         <div className="body">
@@ -37,7 +44,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-    </div>
+    </main>
   );
 }
 

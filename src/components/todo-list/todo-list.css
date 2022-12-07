@@ -6,8 +6,7 @@
 }
 
 .todo-item {
-  background: var(--color-dpo-background);
-  box-shadow: var(--shadow);
+  background: var(--bg-100);
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5;
@@ -15,7 +14,7 @@
   list-style-type: none;
   display: block;
   margin-bottom: -1px;
-  border: 1px solid var(--color-dark-redbrown);
+  border: 1px solid var(--bg-50);
 }
 
 .todo-item:first-child {

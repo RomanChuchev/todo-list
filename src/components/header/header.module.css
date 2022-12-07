@@ -2,12 +2,13 @@
   display: flex;
   align-items: center;
   box-shadow: var(--shadow);
-  background: var(--color-white);
+  background: var(--bg-900);
+  border-bottom: 1px solid var(--bg-50);
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
   height: 60px;
   padding: 20px;
 }
@@ -22,35 +23,55 @@
   font-weight: 700;
   line-height: 48px;
   letter-spacing: 0em;
-  color: var(--color-dark-redbrown);
+  color: var(--skin-color);
 }
 
-.header__img {
-  flex: 0 0 30%;
-  max-width: 30%;
-}
 .header__wrapper {
-  flex: 0 0 30%;
-  max-width: 30%;
-  text-align: end;
+  position: fixed;
+  top: 10px;
+  right: 63px;
   display: flex;
-  gap: 5%;
-  justify-content: flex-end;
+  gap: 10%;
+  justify-content: center;
 }
 .header__count {
   display: flex;
-  height: 30px;
-  width: 90px;
+  height: 40px;
+  width: 40px;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-middle-brown);
+  background-color: var(--bg-100);
+  border: 1px solid var(--bg-50);
+  box-shadow: 0 0 2px rgb(111 66 193 / 90%), 0 0 4px rgb(111 66 193 / 40%),
+    0 0 1rem rgb(111 66 193 / 30%), 0 0 4rem rgb(111 66 193 / 10%);
   border-radius: 50px;
-  color: var(--color-middle-brown);
-  transition: all 0.5s ease;
+  color: var(--text-700);
 }
-.header__count:hover {
-  background-color: var(--color-middle-brown);
-  color: #fff;
+
+.header__count:active {
+  transform: rotate(-90deg);
+}
+
+.header__logo {
+  font-size: 30px;
+  text-transform: capitalize;
+  display: inline-block;
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+
+.header__logo a {
+  color: var(--text-700);
+  font-weight: 700;
+  padding: 10px 15px;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+.header__logo a span {
+  font-family: "Clicker Script", cursive;
+  font-size: 40px;
+  color: var(--text-700);
 }
 
 @media (max-width: 767px) {

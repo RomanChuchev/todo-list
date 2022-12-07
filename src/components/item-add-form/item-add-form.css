@@ -5,11 +5,10 @@
   flex: 0 0 80%;
   max-width: 80%;
   margin: 0 auto;
-  border: 1px solid var();
 }
 .item-add-form h2 {
   text-align: center;
-  color: var(--color-dark-redbrown);
+  color: var(--skin-color);
 }
 
 .row {
@@ -30,16 +29,17 @@
   width: 100%;
   height: 60px;
   border-radius: 25px;
-  background: var(--color-dpo-light);
-  border: 1px solid var(--color-black);
+  background: var(--bg-100);
+  border: 1px solid var(--bg-50);
   padding: 10px 25px;
   font-size: 16px;
-  color: var(--color-black);
+  color: var(--text-900);
   transition: all 0.3s ease;
 }
 
 .form-control:focus {
-  box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+  box-shadow: var(--skin-shadow);
+  outline: none;
 }
 
 textarea.form-control {
@@ -66,21 +66,30 @@ textarea.form-control {
 }
 
 .form__btn {
-  flex: 0 0 30%;
-  max-width: 30%;
-  height: 60px;
+  flex: 0 0 20%;
+  max-width: 20%;
+  height: 50px;
   border-radius: 50px;
-  background: var(--color-dpo-background);
-  border: 1px solid var(--color-dark-redbrown);
-  box-shadow: var(--shadow);
+  background: var(--bg-100);
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.1) inset,
+    0px 0px 5px 0px var(--skin-color);
   transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--skin-color);
 }
+.file__item:hover,
 .form__btn:hover {
-  background-color: #cddae4;
+  color: #fff;
+  background: var(--skin-color);
+  box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.05) inset,
+    0px 0px 12px 0px var(--skin-color);
 }
+.file__item:active,
 .form__btn:active {
-  background-color: #bfd9e3;
-  transform: scale(1.05);
+  color: #fff;
+  background: var(--skin-color);
+  transform: scale(1.02);
 }
 
 /* form */
@@ -114,21 +123,24 @@ textarea.form-control {
 
 .file {
   display: flex;
-  flex: 0 0 30%;
-  max-width: 30%;
+  flex: 0 0 20%;
+  max-width: 20%;
 }
 
 .file__item {
   position: relative;
+  text-align: center;
   flex: 0 0 100%;
   max-width: 100%;
-  text-align: center;
-  height: 60px;
+  height: 50px;
   border-radius: 50px;
-  background: var(--color-dpo-background);
-  border: 1px solid var(--color-dark-redbrown);
-  box-shadow: var(--shadow);
+  background: var(--bg-100);
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset,
+    0px 0px 5px 0px var(--skin-color);
   transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--skin-color);
 }
 .file__input {
   position: absolute;
@@ -142,7 +154,7 @@ textarea.form-control {
 }
 .file__button {
   display: inline-flex;
-  min-height: 60px;
+  min-height: 50px;
   justify-content: center;
   align-items: center;
 }

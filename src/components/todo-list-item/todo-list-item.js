@@ -5,7 +5,7 @@ import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import Timer from "../Timer";
 import { db, storage } from "../../firebase";
 
-import "./todo-list-item.css";
+import style from "./todo-list-item.module.css";
 
 /**
  * Функция форматирования времени
@@ -68,16 +68,16 @@ function TodoListItem({ todo }) {
   }
 
   return (
-    <div className="todo-list-item">
+    <div className={style.item}>
       {todo.complete ? (
         <>
-          <div className="complete-wrapper">
-            <div className="todo-list-item__title">{todo.title}</div>
+          <div className={style.completeWrapper}>
+            <div className={style.item__title}>{todo.title}</div>
 
-            <div className="btn-wrapper">
+            <div className={style.btnWrapper}>
               <Link
                 onClick={completeTodo}
-                className="btn btn-success"
+                className={style.success}
                 to={`/todo/${todo.id}/`}
               >
                 <i className="fa fa-refresh"></i>
@@ -86,56 +86,56 @@ function TodoListItem({ todo }) {
               <button
                 onClick={() => deleteTodo()}
                 type="button"
-                className="btn btn-danger"
+                className={style.danger}
               >
-                <i className="fa fa-trash-o" />
+                <i className="fa fa-trash-can" />
               </button>
             </div>
           </div>
         </>
       ) : (
         <>
-          <div className="todo-item__container">
+          <div className={style.container}>
             {url && (
               <img
-                className="todo-list-item__images"
+                className={style.item__images}
                 src={url}
                 alt="images-from-user"
               />
             )}
-            <div className="todo-item__wrapper">
+            <div className={style.wrapper}>
               <div>
-                <div className="todo-list-item__title">{todo.title}</div>
-                <div className="todo-list-item__description">
+                <div className={style.item__title}>{todo.title}</div>
+                <div className={style.item__description}>
                   {todo.description ?? todo.description}
                 </div>
               </div>
             </div>
-            <div className="settings__wrapper">
-              <div className="btn-wrapper">
+            <div className={style.settings}>
+              <div className={style.btnWrapper}>
                 <button
                   onClick={completeTodo}
                   type="button"
-                  className="btn btn-success"
+                  className={style.success}
                 >
-                  <i className="fa fa-check-square-o"></i>
+                  <i className="fa fa-check"></i>
                 </button>
 
-                <Link className="btn btn-primary" to={`/todo/${todo.id}/`}>
+                <Link className={style.primary} to={`/todo/${todo.id}/`}>
                   <i className="fa fa-pencil"></i>
                 </Link>
 
                 <button
                   onClick={() => deleteTodo()}
                   type="button"
-                  className="btn btn-danger"
+                  className={style.danger}
                 >
-                  <i className="fa fa-trash-o" />
+                  <i className="fa fa-trash-can"></i>
                 </button>
               </div>
-              <div className="settings__time">
-                До окончания:
-                <div style={{ color: "blueviolet", marginLeft: 10 }}>
+              <div className={style.settings__time}>
+                <div className={style.timer}>
+                  <i className="fa-regular fa-clock"></i>
                   <Timer
                     time={todo.dateCompletion}
                     docRef={docRef}
@@ -143,14 +143,9 @@ function TodoListItem({ todo }) {
                   />
                 </div>
               </div>
-              <div className="settings__time">
+              <div className={style.timer}>
                 <span>Последнее обновление:</span>
-                <div
-                  className="sittings__formatted"
-                  style={{ color: "blueviolet", marginLeft: 5 }}
-                >
-                  {formattedTime(todo.createdAt.seconds)}
-                </div>
+                {formattedTime(todo.createdAt.seconds)}
               </div>
             </div>
           </div>

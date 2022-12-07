@@ -62,8 +62,14 @@ body {
   z-index: 200;
   box-shadow: 0 0 2px rgb(111 66 193 / 90%), 0 0 4px rgb(111 66 193 / 40%),
     0 0 1rem rgb(111 66 193 / 30%), 0 0 4rem rgb(111 66 193 / 10%);
+  transition: all 0.3s ease;
 }
 
+.night-mode:hover {
+  color: #fff;
+  border: 1px solid var(--skin-color);
+  background: var(--skin-color);
+}
 .night-mode i {
   line-height: 40px;
 }

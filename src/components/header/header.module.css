@@ -46,8 +46,13 @@
     0 0 1rem rgb(111 66 193 / 30%), 0 0 4rem rgb(111 66 193 / 10%);
   border-radius: 50px;
   color: var(--text-700);
+  transition: all 0.3s ease;
 }
 
+.header__count:hover {
+  color: #fff;
+  border: 20px solid var(--skin-color);
+}
 .header__count:active {
   transform: rotate(-90deg);
 }

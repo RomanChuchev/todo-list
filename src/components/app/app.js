@@ -24,7 +24,7 @@ function App() {
         <i className={styleIcon}></i>
       </button>
 
-      <Router basename="/woman-up-todo-list">
+      <Router basename="/todo-list">
         <Header />
         <div className="body">
           <Routes>
